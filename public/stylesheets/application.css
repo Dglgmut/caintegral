@@ -68,8 +68,9 @@ a:focus, a:active {
 
 body {
   font: 13px Arial, Helvetica, sans-serif;
-  background: white;
+  background: center top url(../images/page_bkg.gif);
   color: #0d0d0d;
+  font-size: 18px;
 }
 body #main {
   border-top: 2px solid black;
@@ -119,7 +120,7 @@ body #top ul li a:hover {
 body .sugestoes {
   margin: 0 auto;
   padding: 14px;
-  width: 300px;
+  width: 700px;
 }
 body .sugestoes label {
   display: block;
@@ -127,13 +128,16 @@ body .sugestoes label {
   width: 140;
 }
 body .sugestoes input {
-  font-size: 12px;
+  font-size: 18px;
   width: 300px;
   margin-bottom: 15px;
 }
+body .sugestoes input.button {
+  width: 700px;
+}
 body .sugestoes textarea {
-  font-size: 12px;
-  width: 300px;
+  font-size: 18px;
+  width: 700px;
   margin-bottom: 15px;
   height: 80px;
 }
@@ -165,7 +169,6 @@ body #notice {
   color: white;
   width: 33%;
   text-align: center;
-  background-color: darkblue;
+  background-color: #43628b;
   border: 1px solid white;
-
 }
