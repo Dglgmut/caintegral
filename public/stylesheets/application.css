@@ -88,6 +88,12 @@ body #main h1 #Title {
   margin-left: -500px;
   font-style: italic;
 }
+body #main #content {
+  background: #d2d8e1;
+  padding: 40px;
+  border: black solid;
+  border-radius: 20px;
+}
 body #top img {
   margin-top: 10px;
   margin-left: 20px;
@@ -133,11 +139,11 @@ body .sugestoes input {
   margin-bottom: 15px;
 }
 body .sugestoes input.button {
-  width: 700px;
+  width: 500px;
 }
 body .sugestoes textarea {
   font-size: 18px;
-  width: 700px;
+  width: 500px;
   margin-bottom: 15px;
   height: 80px;
 }
