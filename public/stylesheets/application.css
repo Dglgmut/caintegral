@@ -136,3 +136,17 @@ body .sugestoes textarea {
   margin-bottom: 15px;
   height: 80px;
 }
+body .membros {
+  margin: 0 auto;
+  width: 700px;
+}
+body .propostas {
+  margin: 0 auto;
+  width: 700px;
+}
+body .propostas ul {
+  list-style-type: circle;
+}
+body .propostas ul li {
+  margin-bottom: 15px;
+}
