@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'yaml'
+
 
 # Helpers
 require './lib/render_partial'
@@ -22,6 +24,14 @@ get '/sugestoes' do
 end
 
 post '/sugestoes' do
+  name = params[:name]
+  mail = params[:mail]
+  message = params[:message]
+
+  f = File.new "db.troll", "a"
+  f.puts name + '_' + mail + '_' + message
+  f.close
+
   haml :index, :layout => :'layouts/application'
 end
 
