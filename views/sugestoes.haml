@@ -1,0 +1,12 @@
+%h1 Sugest&otilde;es
+.sugestoes
+  #content
+    %form{ :action => "", :method => "post"}
+      %fieldset
+        %label{:for => "name"} Nome:
+        %input{:type => "text", :name => "name", :class => "text"}
+        %label{:for => "mail"} Email:
+        %input{:type => "text", :name => "mail", :class => "text"}
+        %label{:for => "message"} Mensagem:
+        %textarea{:name => "message"}
+        %input{:type => "submit", :value => "Enviar", :class => "button"}

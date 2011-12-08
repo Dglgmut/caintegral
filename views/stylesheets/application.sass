@@ -5,7 +5,7 @@
 // Base font
 =font-default
   font: 13px Arial, Helvetica, sans-serif
-  
+
 // Links
 a
   color: #3366CC
@@ -20,30 +20,94 @@ a
 
 body
   +font-default
-  background: #fff
+  background: center top url(../images/page_bkg.gif)
   color: #0d0d0d
-  h1
+  font-size: 18px
+  #main
+    border-top: 2px solid #000
+    h1
+      font-size: 40px
+      font-weight: bold
+      margin-top: -40px
+      text-align: center
+      width: 100%
+      #Title
+        font-size: 90px
+        margin-top: -90px
+        margin-left: -500px
+        font-style: italic
+    #content
+      background: #D2D8E1
+      padding: 40px
+      border: black solid
+      border-radius: 20px
+  #top
+    img
+      margin-top: 10px
+      margin-left: 20px
+    ul
+      +border-radius(6px)
+      position: absolute
+      background: #e7e7e7
+      border: 1px solid #ccc
+      margin-top: 60px
+      margin-left: 70%
+      li
+        display: inline
+        line-height: 30px
+        padding: 0 15px
+        a
+          color: #000
+          text-decoration: none
+          &:hover
+            text-decoration: underline
+
+  .sugestoes
+    margin: 0 auto
+    padding: 14px
+    width: 700px
+    label
+      display: block
+      font-weight: bold
+      text-align:right
+      width: 140
+    input
+      font-size: 18px
+      width: 300px
+      margin-bottom: 15px
+    input.button
+      width: 500px
+    textarea
+      font-size: 18px
+      width: 500px
+      margin-bottom: 15px
+      height: 80px
+
+  .membros
+    margin: 0 auto
+    width: 700px
+
+  .propostas
+    margin: 0 auto
+    width: 700px
+    ul
+      list-style-type: circle
+      li
+        margin-bottom: 15px
+
+  .index
+    margin: 0 auto
+    width: 700px
+    h2
+      font-weight: bold
+      font-size: 30px
+
+  #notice
     position: absolute
-    top: 50%
-    left: 0
-    font-size: 40px
-    font-weight: bold
-    margin-top: -40px
+    margin: 0 33%
+    color: white
+    width: 33%
     text-align: center
-    width: 100%
-  ul
-    +border-radius(6px)
-    background: #e7e7e7
-    border: 1px solid #ccc
-    margin-top: 10px
-    margin-left: 10px
-    margin-right: 10px
-    li
-      display: inline
-      line-height: 30px
-      padding: 0 15px
-      a
-        color: #000
-        text-decoration: none
-        &:hover
-          text-decoration: underline
+    background-color: #43628b
+    border: 1px solid white
+

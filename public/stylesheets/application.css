@@ -68,41 +68,113 @@ a:focus, a:active {
 
 body {
   font: 13px Arial, Helvetica, sans-serif;
-  background: white;
+  background: center top url(../images/page_bkg.gif);
   color: #0d0d0d;
+  font-size: 18px;
 }
-body h1 {
-  position: absolute;
-  top: 50%;
-  left: 0;
+body #main {
+  border-top: 2px solid black;
+}
+body #main h1 {
   font-size: 40px;
   font-weight: bold;
   margin-top: -40px;
   text-align: center;
   width: 100%;
 }
-body ul {
+body #main h1 #Title {
+  font-size: 90px;
+  margin-top: -90px;
+  margin-left: -500px;
+  font-style: italic;
+}
+body #main #content {
+  background: #d2d8e1;
+  padding: 40px;
+  border: black solid;
+  border-radius: 20px;
+}
+body #top img {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+body #top ul {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   -o-border-radius: 6px;
   -ms-border-radius: 6px;
   -khtml-border-radius: 6px;
   border-radius: 6px;
+  position: absolute;
   background: #e7e7e7;
   border: 1px solid #cccccc;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-top: 60px;
+  margin-left: 70%;
 }
-body ul li {
+body #top ul li {
   display: inline;
   line-height: 30px;
   padding: 0 15px;
 }
-body ul li a {
+body #top ul li a {
   color: black;
   text-decoration: none;
 }
-body ul li a:hover {
+body #top ul li a:hover {
   text-decoration: underline;
+}
+body .sugestoes {
+  margin: 0 auto;
+  padding: 14px;
+  width: 700px;
+}
+body .sugestoes label {
+  display: block;
+  font-weight: bold;
+  width: 140;
+}
+body .sugestoes input {
+  font-size: 18px;
+  width: 300px;
+  margin-bottom: 15px;
+}
+body .sugestoes input.button {
+  width: 500px;
+}
+body .sugestoes textarea {
+  font-size: 18px;
+  width: 500px;
+  margin-bottom: 15px;
+  height: 80px;
+}
+body .membros {
+  margin: 0 auto;
+  width: 700px;
+}
+body .propostas {
+  margin: 0 auto;
+  width: 700px;
+}
+body .propostas ul {
+  list-style-type: circle;
+}
+body .propostas ul li {
+  margin-bottom: 15px;
+}
+body .index {
+  margin: 0 auto;
+  width: 700px;
+}
+body .index h2 {
+  font-weight: bold;
+  font-size: 30px;
+}
+body #notice {
+  position: absolute;
+  margin: 0 33%;
+  color: white;
+  width: 33%;
+  text-align: center;
+  background-color: #43628b;
+  border: 1px solid white;
 }
