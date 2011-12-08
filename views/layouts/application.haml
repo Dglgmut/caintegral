@@ -14,5 +14,8 @@
       = partial :_nav_main
       %img{:src => "/images/integral.png", :height => "160px"}
     #main
+      -if @notice
+        #notice
+          = @notice
       = yield
       = partial :_analytics
