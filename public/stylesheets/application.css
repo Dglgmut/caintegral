@@ -82,8 +82,9 @@ body #main h1 {
   width: 100%;
 }
 body #main h1 #Title {
-  font-size: 60px;
-  margin-top: -60px;
+  font-size: 90px;
+  margin-top: -90px;
+  margin-left: -500px;
   font-style: italic;
 }
 body #top img {
@@ -149,4 +150,12 @@ body .propostas ul {
 }
 body .propostas ul li {
   margin-bottom: 15px;
+}
+body .index {
+  margin: 0 auto;
+  width: 700px;
+}
+body .index h2 {
+  font-weight: bold;
+  font-size: 30px;
 }
