@@ -69,5 +69,5 @@ get '/membros' do
 end
 
 get '/propostas' do
-  haml :propostas, :layout => :'layouts/page'
+  haml :propostas, :layout => :'layouts/application'
 end
