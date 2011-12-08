@@ -17,6 +17,18 @@ get '/' do
   haml :index, :layout => :'layouts/application'
 end
 
-get '/about' do
-  haml :about, :layout => :'layouts/page'
+get '/sugestoes' do
+  haml :sugestoes, :layout => :'layouts/application'
+end
+
+post '/sugestoes' do
+  haml :index, :layout => :'layouts/application'
+end
+
+get '/membros' do
+  haml :membros, :layout => :'layouts/page'
+end
+
+get '/propostas' do
+  haml :propostas, :layout => :'layouts/page'
 end

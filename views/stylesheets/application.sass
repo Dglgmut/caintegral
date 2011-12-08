@@ -5,7 +5,7 @@
 // Base font
 =font-default
   font: 13px Arial, Helvetica, sans-serif
-  
+
 // Links
 a
   color: #3366CC
@@ -22,28 +22,54 @@ body
   +font-default
   background: #fff
   color: #0d0d0d
-  h1
-    position: absolute
-    top: 50%
-    left: 0
-    font-size: 40px
-    font-weight: bold
-    margin-top: -40px
-    text-align: center
-    width: 100%
-  ul
-    +border-radius(6px)
-    background: #e7e7e7
-    border: 1px solid #ccc
-    margin-top: 10px
-    margin-left: 10px
-    margin-right: 10px
-    li
-      display: inline
-      line-height: 30px
-      padding: 0 15px
-      a
-        color: #000
-        text-decoration: none
-        &:hover
-          text-decoration: underline
+  #main
+    border-top: 2px solid #000
+    h1
+      font-size: 40px
+      font-weight: bold
+      margin-top: -40px
+      text-align: center
+      width: 100%
+      #Title
+        font-size: 60px
+        margin-top: -60px
+        font-style: italic
+  #top
+    img
+      margin-top: 10px
+      margin-left: 20px
+    ul
+      +border-radius(6px)
+      position: absolute
+      background: #e7e7e7
+      border: 1px solid #ccc
+      margin-top: 60px
+      margin-left: 650px
+      li
+        display: inline
+        line-height: 30px
+        padding: 0 15px
+        a
+          color: #000
+          text-decoration: none
+          &:hover
+            text-decoration: underline
+
+  .sugestoes
+    margin: 0 auto
+    padding: 14px
+    width: 300px
+    label
+      display: block
+      font-weight: bold
+      text-align:right
+      width: 140
+    input
+      font-size: 12px
+      width: 300px
+      margin-bottom: 15px
+    textarea
+      font-size: 12px
+      width: 300px
+      margin-bottom: 15px
+      height: 80px
