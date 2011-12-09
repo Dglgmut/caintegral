@@ -6,6 +6,9 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
+require 'rss/2.0'
+require 'open-uri'
+
 
 # Helpers
 require './lib/render_partial'
@@ -70,4 +73,20 @@ end
 
 get '/propostas' do
   haml :propostas, :layout => :'layouts/application'
+end
+
+get '/feeds' do
+  source = "http://www.facebook.com/feeds/page.php?id=201750899906651&format=rss20"
+  descriptions = [] # raw content of rss feed will be loaded here
+  content = ""
+  open(source) do |s| content = s.read end
+  rss = RSS::Parser.parse(content, false)
+  rss.items.each {|o| descriptions << o.description}
+  content = descriptions.collect do |o|
+    unless o.to_s =~ /img/m
+      ('<div class="news">' + o.to_s + "</div>")
+    else
+      ""
+    end
+  end
 end

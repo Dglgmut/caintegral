@@ -94,6 +94,11 @@ body #main #content {
   border: black solid;
   border-radius: 20px;
 }
+body #main #content .news {
+  border-top: 5px solid black;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+}
 body #top img {
   margin-top: 10px;
   margin-left: 20px;
@@ -177,4 +182,8 @@ body #notice {
   text-align: center;
   background-color: #43628b;
   border: 1px solid white;
+}
+body .loading {
+  margin: 0 43%;
+  width: 60px;
 }
