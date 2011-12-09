@@ -83,10 +83,10 @@ get '/feeds' do
   rss = RSS::Parser.parse(content, false)
   rss.items.each {|o| descriptions << o.description}
   content = descriptions.collect do |o|
-    unless o.to_s =~ /img/m
-      ('<div class="news">' + o.to_s + "</div>")
-    else
-      ""
-    end
+   # unless o.to_s =~ /img/m
+      ('<div class="news">' + o.to_s + "</div>").gsub(/\<img(.*?)\>/m, "")
+   # else
+   #   ""
+   # end
   end
 end
