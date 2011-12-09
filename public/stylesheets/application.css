@@ -174,4 +174,17 @@ body .index h2 {
   font-weight: bold;
   font-size: 30px;
 }
+body #notice {
+  position: absolute;
+  margin: 0 33%;
+  color: white;
+  width: 33%;
+  text-align: center;
+  background-color: #43628b;
+  border: 1px solid white;
+}
 
+body .loading {
+  margin: 0 43%;
+  width: 60px;
+}
