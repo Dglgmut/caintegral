@@ -4,17 +4,25 @@
     %meta{:'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
     %meta{:name => "lang", :content => "pt"}
     %title Integral
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    / Le styles
     %link{:href=>'/stylesheets/application.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
     %script{:type => "text/javascript", :src => "/javascripts/lib/jquery-1.5.min.js"}
     %script{:type => "text/javascript", :src => "/javascripts/lib/modernizr-1.6.min.js"}
     %script{:type => "text/javascript", :src => "/javascripts/application.js"}
-
+    :css
+      body {
+        padding-top: 60px;
+      }
   %body
-    #top
-      = partial :_nav_main
-      %img{:src => "/images/integral.png", :height => "160px"}
-    #main
-      -if @notice
-        #notice
-          = @notice
-      = yield
+    = partial :_nav_main
+    .container
+      .hero-unit
+        -if @notice
+          .alert-message.warning
+            = @notice
+        = yield
+        %footer
+          %p{:style => "text-align:center;color:#BBB;"} &copy; Redgear 2012

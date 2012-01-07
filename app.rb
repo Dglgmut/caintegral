@@ -8,7 +8,7 @@ require 'dm-validations'
 require 'dm-migrations'
 require 'rss/2.0'
 require 'open-uri'
-
+require "sinatra-authentication"
 
 # Helpers
 require './lib/render_partial'
@@ -31,6 +31,7 @@ class Sugestoes
   validates_presence_of :message, :message => "A mensagem n&atilde;o pode ficar em branco"
 end
 
+
 DataMapper.auto_migrate!
 
 # Set Sinatra variables
@@ -40,6 +41,10 @@ set :views, 'views'
 #set :public, 'public'
 set :haml, {:format => :html5} # default Haml format is :xhtml
 enable :sessions
+
+use Rack::Session::Cookie, :secret => ENV['COOKIE_SECRET'] || 'A1 sauce 1s so good you should use 1t on a11 yr st34ksssss'
+set :default_layout, :'layouts/application'
+
 
 # Application routes
 get '/' do
@@ -84,7 +89,8 @@ get '/feeds' do
   rss.items.each {|o| descriptions << o.description}
   content = descriptions.collect do |o|
    # unless o.to_s =~ /img/m
-      ('<div class="news">' + o.to_s + "</div>").gsub(/\<img(.*?)\>/m, "")
+  ('<div class="news">' + o.to_s + "</div>").gsub(/\<img(.*?)\>/m, "")
+
    # else
    #   ""
    # end

@@ -1,9 +1,30 @@
-%script{:type => "text/javascript", :src => "javascripts/feeder.js"}
-%h1
-  #Title
-    Integral
-.index
-  #content
-    %h2 Destaques:
-    %h3
-      %img{:src => "/images/loading.gif", :class => "loading"}
+=#%script{:type => "text/javascript", :src => "javascripts/feeder.js"}
+=#%h1
+=#  #Title
+=#    Integral
+=#.index
+=#  #content
+=#    %h2 Destaques:
+=#    %h3
+=#      %img{:src => "/images/loading.gif", :class => "loading"}
+/ Main hero unit for a primary marketing message or call to action
+.row
+  .span11
+    %h1{:style => "font-size:48px;"} Fale Conosco!
+    %p Mande agora mesmo uma sugestão, reclamação ou agradecimento para os integrantes do Centro Academico
+    %p
+      %a.btn.primary.large{:href=>"/sugestoes"} Sugest&otilde;es &raquo;
+  .span1
+    %img{:src => "/images/logo2.png"}
+/ Example row of columns
+.row{:style=>"border-top: solid #DDD 1px;padding-top:20px"}
+  .span7
+    %h2 Destaques
+    %p Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliq...
+    %p
+      %a.btn{:href => "#"} Ver Todos &raquo;
+  .span7
+    %h2 Acompanhe
+    %p Veja aqui o que est&atilde;o falando da FATEC, do Centro Paula Souza e do Centro Academico no twitter.
+    %p
+      %a.btn{:href => "#"} Ver Detalhes &raquo;

@@ -1,12 +1,19 @@
-%h1 Sugest&otilde;es
+%h2 Sugest&otilde;es
 .sugestoes
   #content
     %form{ :action => "", :method => "post"}
       %fieldset
-        %label{:for => "name"} Nome:
-        %input{:type => "text", :name => "name", :class => "text"}
-        %label{:for => "mail"} Email:
-        %input{:type => "text", :name => "mail", :class => "text"}
-        %label{:for => "message"} Mensagem:
-        %textarea{:name => "message"}
-        %input{:type => "submit", :value => "Enviar", :class => "button"}
+        .clearfix
+          %label{:for => "name"} Nome:
+          .input
+            %input.xlarge{:type => "text", :name => "name", :class => "text"}
+        .clearfix
+          %label{:for => "mail"} Email:
+          .input
+            %input.xlarge{:type => "text", :name => "mail", :class => "text"}
+        .clearfix
+          %label{:for => "message"} Mensagem:
+          .input
+            %textarea.xlarge{:name => "message",:rows=>"7"}
+        .actions
+          %input.btn.success.xlarge{:type => "submit", :value => "Enviar", :class => "button"}
