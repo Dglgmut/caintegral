@@ -26,6 +26,7 @@ class Sugestoes
   property :data,      DateTime
   property :message,   String, :length => 3000
 
+  validates_length_of :message, 3000, :message => "A mensagem não pode passar de 3000 letras"
   validates_presence_of :message, :message => "A mensagem n&atilde;o pode ficar em branco"
 end
 
@@ -54,7 +55,7 @@ use Rack::Session::Cookie, :secret => ENV['COOKIE_SECRET'] || 'A1 sauce 1s so go
 
 #helpers
 def user_admin?
-  ('admin_secret' || ENV['ADMIN_SECRET']) == session[:admin_secret]
+  (ENV['ADMIN_SECRET'] || 'admin_secret' ) == session[:admin_secret]
 end
 
 def authorize!
