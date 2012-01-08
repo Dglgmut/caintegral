@@ -49,7 +49,7 @@ set :root, File.dirname(__FILE__)
 set :views, 'views'
 #set :public, 'public'
 set :haml, {:format => :html5} # default Haml format is :xhtml
-enable :sessions
+#enable :sessions
 
 #use Rack::Session::Cookie, :secret => ENV['COOKIE_SECRET'] || 'A1 sauce 1s so good you should use 1t on a11 yr st34ksssss'
 
