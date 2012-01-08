@@ -22,9 +22,9 @@ class Sugestoes
   include DataMapper::Resource
   property :id,        Serial
   property :name,      String
-  property :mail,      String, :length => 150
+  property :mail,      Text
   property :data,      DateTime
-  property :message,   String, :length => 3000, :message => "A mensagem n&atilde;o pode passar de 3000 letras"
+  property :message,   Text
 
   #validates_length_of :message
   validates_presence_of :message, :message => "A mensagem n&atilde;o pode ficar em branco"
@@ -34,7 +34,7 @@ class Destaques
   include DataMapper::Resource
   property :id,         Serial
   property :title,      String
-  property :content,    String, :length => 30000
+  property :content,    Text
   property :date,       DateTime
 
   validates_presence_of :title, :content, :date
