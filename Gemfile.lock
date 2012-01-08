@@ -72,9 +72,17 @@ GEM
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.2.8)
+      dm-core
+      dm-migrations
+      dm-timestamps
+      dm-validations
       rack (~> 1.1)
+      rack-flash
+      rufus-tokyo
+      sinatra
+      sinbook
       tilt (>= 1.2.2, < 2.0)
-    sinatra-authentication (0.4.2)
+    sinatra-authentication (0.4.1)
       dm-core
       dm-migrations
       dm-timestamps
@@ -102,4 +110,5 @@ DEPENDENCIES
   sass (~> 3.1.1)
   shotgun (~> 0.9)
   sinatra (~> 1.2.3)
-  sinatra-authentication (= 0.4.2)
+  sinatra-authentication
+  yajl-ruby
