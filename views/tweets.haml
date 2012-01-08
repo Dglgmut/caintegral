@@ -1,0 +1,32 @@
+%a.back_btn.btn{:href => "/"} Voltar
+%h1 Tweets
+
+%script{:src => "http://widgets.twimg.com/j/2/widget.js"}
+:javascript
+  new TWTR.Widget({
+    version: 2,
+    type: 'search',
+    search: 'fatec',
+    interval: 30000,
+    title: '',
+    subject: '',
+    width: 820,
+    height: 700,
+    theme: {
+      shell: {
+        background: '#767d80',
+        color: '#ffffff'
+      },
+      tweets: {
+        background: '#ffffff',
+        color: '#444444',
+        links: '#000000'
+      }
+    },
+    features: {
+      scrollbar: true,
+      loop: true,
+      live: true,
+      behavior: 'default'
+    }
+  }).render().start();
