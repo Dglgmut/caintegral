@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "sinatra", "~> 1.2.3"
+gem "sinatra", "~> 1.3.2"
 gem "shotgun", "~> 0.9"
 gem "haml", "~> 3.1.1"
 gem "thin", "1.2.6"
