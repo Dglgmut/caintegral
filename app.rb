@@ -41,7 +41,7 @@ class Destaques
   validates_presence_of :title, :content, :date
 end
 
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
 # Set Sinatra variables
 set :app_file, __FILE__
