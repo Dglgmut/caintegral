@@ -39,7 +39,7 @@ class Destaques
   validates_presence_of :title, :content, :date
 end
 
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
 
 # Set Sinatra variables
 set :app_file, __FILE__
@@ -50,8 +50,16 @@ set :haml, {:format => :html5} # default Haml format is :xhtml
 enable :sessions
 
 use Rack::Session::Cookie, :secret => ENV['COOKIE_SECRET'] || 'A1 sauce 1s so good you should use 1t on a11 yr st34ksssss'
-set :default_layout, :'layouts/application'
 
+
+#helpers
+def user_admin?
+  ('admin_secret' || ENV['ADMIN_SECRET']) == session[:admin_secret]
+end
+
+def authorize!
+  raise "You shall not pass" unless user_admin?
+end
 
 # Application routes
 get '/' do
@@ -96,16 +104,13 @@ get '/destaques' do
   haml :destaques, :layout => :'layouts/application', :locals => {:destaques => destaques}
 end
 
-get '/destaques/ver/:id' do
-  destaque = Destaques.get(params[:id])
-  haml :ver_destaque, :layout => :'layouts/application', :locals => {:destaque => destaque}
-end
-
 get '/destaques/novo' do
+  authorize!
   haml :novo_destaque, :layout => :'layouts/application'
 end
 
 post '/destaques/novo' do
+  authorize!
   title = params[:title]
   content = params[:content]
 
@@ -121,14 +126,45 @@ post '/destaques/novo' do
   end
 end
 
+get '/destaques/:id/ver' do
+  destaque = Destaques.get(params[:id])
+  haml :ver_destaque, :layout => :'layouts/application', :locals => {:destaque => destaque}
+end
+
 get '/destaques/:id/editar' do
-  haml :edita_destaque, :layout => :'layouts/application'
+  authorize!
+  destaque = Destaques.get(params[:id])
+  haml :edita_destaque, :layout => :'layouts/application', :locals => {:destaque => destaque}
 end
 
 post '/destaques/:id/editar' do
+  authorize!
+  destaque = Destaques.get(params[:id])
+  destaque.title = params[:title]
+  destaque.content = params[:content]
+  if destaque.save
+    @notice = "Seu destaque foi enviado com sucesso"
+    haml :index, :layout => :'layouts/application'
+  else
+    notice = []
+    destaque.errors.each_value {|o| notice << o}
+    @notice = notice[0][0]
+    haml :novo_destaque, :layout => :'layouts/application'
+  end
 
 end
 
 post '/destaques/:id/deletar' do
+  authorize!
+  Destaque.get(params[:id]).destroy
+end
 
+get '/login' do
+  session[:admin_secret] = ""
+  haml :login
+end
+
+post '/login' do
+  session[:admin_secret] = params[:secret]
+  haml :index, :layout => :'layouts/application'
 end
