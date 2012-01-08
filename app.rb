@@ -26,7 +26,6 @@ class Sugestoes
   property :data,      DateTime
   property :message,   Text
 
-  #validates_length_of :message
   validates_presence_of :message, :message => "A mensagem n&atilde;o pode ficar em branco"
 end
 
@@ -50,7 +49,7 @@ set :views, 'views'
 set :haml, {:format => :html5} # default Haml format is :xhtml
 enable :sessions
 
-use Rack::Session::Cookie, :secret => ENV['COOKIE_SECRET'] || 'A1 sauce 1s so good you should use 1t on a11 yr st34ksssss'
+#use Rack::Session::Cookie, :secret => ENV['COOKIE_SECRET'] || 'A1 sauce 1s so good you should use 1t on a11 yr st34ksssss'
 
 
 #helpers
