@@ -10,6 +10,8 @@ require 'dm-migrations'
 # Helpers
 require './lib/render_partial'
 
+#Constants
+ADMINSECRET = ENV['ADMIN_SECRET'] || "admin_secret"
 
 #Model/Database stuff
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://myapp:myapp@localhost/dev_integral")
@@ -54,7 +56,7 @@ enable :sessions
 
 #helpers
 def user_admin?
-  (ENV['ADMIN_SECRET'] || 'admin_secret' ) == session[:admin_secret]
+  ADMINSECRET == session[:admin_secret]
 end
 
 def authorize!
