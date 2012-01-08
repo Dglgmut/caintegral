@@ -1,0 +1,15 @@
+%a.back_btn.btn{:href => "/"} Voltar
+%h1 Destaques
+-if destaques.empty?
+  %h4{:style=>"color:grey;"} Nenhuma noticia foi postada ainda :(
+-else
+  -destaques.each do |destaque|
+    %a{:href=>"/destaques/ver/#{destaque.id}"}
+      .row{:style=>"border-top: #EEE solid 1px;margin-top: 15px;"}
+        %h3=destaque.title
+        .row{:style=>"color:#BFBFBF;"}
+          -if destaque.content.length > 140
+            %p.span14=destaque.content.slice(1..140) + "..."
+          -else
+            %p.span14=destaque.content
+

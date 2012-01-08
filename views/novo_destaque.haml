@@ -1,0 +1,14 @@
+%h1 Novo Destaque
+#content
+  %form{ :action => "", :method => "post"}
+    %fieldset
+      .clearfix
+        %label{:for => "title"} Titulo:
+        .input
+          %input.xlarge{:type => "text", :name => "title", :class => "text"}
+      .clearfix
+        %label{:for => "content"} Conteudo:
+        .input
+          %textarea.xlarge{:name => "content",:rows=>"7", :class => "span9"}
+      .actions
+        %input.btn.success.xlarge{:type => "submit", :value => "Enviar", :class => "button"}

@@ -6,7 +6,6 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
-require "sinatra-authentication"
 
 # Helpers
 require './lib/render_partial'
@@ -18,17 +17,27 @@ configure :development do
   enable :logging, :dump_errors, :raise_errors
 end
 
+
 class Sugestoes
   include DataMapper::Resource
   property :id,        Serial
   property :name,      String
   property :mail,      String
   property :data,      DateTime
-  property :message,   String
+  property :message,   String, :length => 3000
 
   validates_presence_of :message, :message => "A mensagem n&atilde;o pode ficar em branco"
 end
 
+class Destaques
+  include DataMapper::Resource
+  property :id,         Serial
+  property :title,      String
+  property :content,    String, :length => 3000
+  property :date,       DateTime
+
+  validates_presence_of :title, :content, :date
+end
 
 DataMapper.auto_migrate!
 
@@ -80,4 +89,46 @@ end
 
 get '/tweets' do
   haml :tweets, :layout => :'layouts/application'
+end
+
+get '/destaques' do
+  destaques = Destaques.all(:order => [:date.desc])
+  haml :destaques, :layout => :'layouts/application', :locals => {:destaques => destaques}
+end
+
+get '/destaques/ver/:id' do
+  destaque = Destaques.get(params[:id])
+  haml :ver_destaque, :layout => :'layouts/application', :locals => {:destaque => destaque}
+end
+
+get '/destaques/novo' do
+  haml :novo_destaque, :layout => :'layouts/application'
+end
+
+post '/destaques/novo' do
+  title = params[:title]
+  content = params[:content]
+
+  destaque = Destaques.new(:title => title, :content => content, :date => Time.now)
+  if destaque.save
+    @notice = "Seu destaque foi enviado com sucesso"
+    haml :index, :layout => :'layouts/application'
+  else
+    notice = []
+    destaque.errors.each_value {|o| notice << o}
+    @notice = notice[0][0]
+    haml :novo_destaque, :layout => :'layouts/application'
+  end
+end
+
+get '/destaques/:id/editar' do
+  haml :edita_destaque, :layout => :'layouts/application'
+end
+
+post '/destaques/:id/editar' do
+
+end
+
+post '/destaques/:id/deletar' do
+
 end
