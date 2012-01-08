@@ -89,6 +89,12 @@ post '/sugestoes' do
   end
 end
 
+get '/sugestoes/todas' do
+  authorize!
+  sugestoes = Sugestoes.all
+  haml :sugestoes_todas, :layout => :'layouts/application', :locals => {:sugestoes => sugestoes}
+end
+
 get '/membros' do
   haml :membros, :layout => :'layouts/page'
 end
