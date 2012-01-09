@@ -34,7 +34,8 @@ Arquitetura da aplicação
 ====================
 A aplicação está seguindo a arquitetura MVC de uma maneira meio estranha, isso será ajustado em breve,
 
-#descrição do papel de cada arquivo;
+descrição do papel de cada arquivo;
+-----------------------------------
 app.rb - Aqui está definida a logica de todo o sistema, banco de dados, requests, etc... (esse arquivo será descentralizado com o tempo)
 views/ pasta com todos os arquivos em HAML.
 public/ pasta com javascript/css (será convertido para coffeescript/sass)
