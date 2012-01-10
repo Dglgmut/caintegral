@@ -37,15 +37,21 @@ A aplicação está seguindo a arquitetura MVC de uma maneira meio estranha, iss
 descrição do papel de cada arquivo;
 -----------------------------------
 app.rb - Aqui está definida a logica de todo o sistema, banco de dados, requests, etc... (esse arquivo será descentralizado com o tempo)
+
 views/ pasta com todos os arquivos em HAML.
+
 public/ pasta com javascript/css (será convertido para coffeescript/sass)
+
 lib/ possui helpers e metodos em geral
+
 tasks/ tarefas que o sistema pode realizar como migrações, compilação de coffeescript, etc..
+
 
 TODO
 ====================
 
-* Criar inteface que le o twitter
+* Implementar Rack::Protection, para proteger de; Cross Site Request Forgery, Cross Site Scripting e Session Hijacking
+* Integrar o site com o facebook
 * Ajustar o sistema de layout, usando um layout unico
 * Quando der um erro de validação na submissão de formularios voltar o valor dos inputs
 * Criar um sistema de migration mais solido, auto_migrate! apaga todos os dados e o auto_upgrade! não da conta de mudar tudo :(
